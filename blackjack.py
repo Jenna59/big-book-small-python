@@ -6,6 +6,7 @@ SPADES = chr(9824)
 CLUBS = chr(9827)
 BACKSIDE = 'backside'
 
+
 def main():
     print(
         '''
@@ -40,7 +41,7 @@ def main():
 
         print('Bet:', bet)
         while True:
-            displayHands(playerHand, dealerHand,False)
+            displayHands(playerHand, dealerHand, False)
             print()
 
             if getHandValue(playerHand) > 21:
@@ -97,6 +98,7 @@ def main():
         input('Press Enter to continue...')
         print('\n\n')
 
+
 def getBet(maxBet):
     while True:
         print('How much do you bet? (1-{}, or QUIT)'.format(maxBet))
@@ -112,6 +114,7 @@ def getBet(maxBet):
         if 1 <= bet <= maxBet:
             return bet
 
+
 def getDeck():
     deck = []
     for suit in (HEARTS, DIAMONDS, SPADES, CLUBS):
@@ -121,6 +124,7 @@ def getDeck():
             deck.append((rank, suit))
     random.shuffle(deck)
     return deck
+
 
 def displayHands(playerHand, dealerHand, showDealerHand):
     print()
@@ -133,6 +137,7 @@ def displayHands(playerHand, dealerHand, showDealerHand):
 
     print('PLAYER:', getHandValue(playerHand))
     displayCards(playerHand)
+
 
 def getHandValue(cards):
     value = 0
@@ -154,6 +159,7 @@ def getHandValue(cards):
 
     return value
 
+
 def displayCards(cards):
     rows = ['', '', '', '', '']
 
@@ -172,6 +178,7 @@ def displayCards(cards):
     for row in rows:
         print(row)
 
+
 def getMove(playerHand, money):
     while True:
         moves = ['(H)it', '(S)tand']
@@ -186,5 +193,20 @@ def getMove(playerHand, money):
         if move == 'D' and '(D)ouble down' in moves:
             return move
 
+
 if __name__ == '__main__':
     main()
+
+'''Exploring the Program
+
+How does the program represent a single card?
+    If the player chooses to Hit or Double, a newCard variable is made that is used to pop one more card from the deck and append it to the player hand. If the player's hand is less than or equal to a value of 21, the dealer will hit and a new card from the deck is appended to the dealer hand.
+
+How does the program represent a hand of cards?
+    A hand of cards is represented by the variables dealerHand and playerHand. These variables pop two cards from the card deck to give to the dealer and player, respectively.
+
+What do each of the strings in the rows list represent?
+    The characters that make up each row
+    
+What happens when showDealerHand in the displayHands() function is set to True? What happens when it is False?
+'''
