@@ -119,3 +119,20 @@ if __name__ == '__main__':
         print()
         print('Bouncing DVD Logo, by Al Sweigart')
         sys.exit()
+
+'''
+    Exploring the Program
+
+    What happens if you change WIDTH, HEIGHT = bext.size() WIDTH, HEIGHT = 10, 5?
+        The width and height shrink from the terminal size to a width of 5 and height of 10.
+        
+    What happens if you replace DIR: random.choice(DIRECTIONS) on line 52 with DIR: DOWN_RIGHT?
+        Everything bounces up and down in a linear fashion from top left of the terminal to the top right, and then bounces its way back to the left.
+    
+    How can you make the 'Corner bounces:' text not appear on the screen?
+        Comment out: print('Corner bounces:', cornerBounces, end='')
+    
+    What error message do you get if you delete or comment out cornerBounces = 0?
+        UnboundLocalError: cannot access local variable 'cornerBounces' where it is not associated with a value
+
+'''
